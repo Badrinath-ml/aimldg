@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jar.model.Student;
 import jar.repo.StudentRepo;
+import jar.service.Dservice;
 
 
 @RestController
@@ -18,25 +19,12 @@ import jar.repo.StudentRepo;
 public class Create {
 
     @Autowired
-    StudentRepo db;
+    Dservice db;
 
     @PostMapping
     public Map<Object, Object> create(@RequestBody Student d) {
-
-        Map<Object, Object> res = new HashMap<>();
-
-        Student s = new Student();
-        s.setName(d.getName());
-        s.setEmail(d.getEmail());
-        s.setIp(d.getIp());
-
-        db.save(s);
-
-        res.put("msg", "Student Added Successfully");
-        res.put("status", 201);
-        res.put("data", s);
-
-        return res;
+        
+         return db.create(d);
     }
     
     
