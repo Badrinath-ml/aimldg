@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import jar.model.Student;
 import jar.repo.StudentRepo;
 
 @Service
